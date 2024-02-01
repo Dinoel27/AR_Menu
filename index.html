@@ -12,7 +12,7 @@
     <mr-app id="app">
         <mr-light color="white" intensity="2" data-position="0 0 0.5"></mr-light>
 
-        <mr-entity data-comp-anchor="type: fixed;">
+        <mr-entity data-comp-anchor="type: plane; label:table;">
        
             <mr-panel id="panel" class="stack">
 
@@ -41,7 +41,6 @@
         </mr-entity>
             <mr-volume 
                 id="volume" 
-                style="y-index:10"
                 data-comp-anchor="type: plane; label: table;">
                 <mr-food id="food"></mr-food>
                 <mr-entity id="food-models"></mr-entity>
@@ -86,7 +85,7 @@
             let width = e.target.plane.dimensions.x - 0.01
             let depth = e.target.plane.dimensions.z - 0.01
             let height = width > depth ? width : depth
-            height /= 2
+            height /= 1
             mrfood.mesh.geometry.copy(new THREE.BoxGeometry(width, height, depth))
         }
     })
