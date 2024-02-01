@@ -85,7 +85,7 @@
             let width = e.target.plane.dimensions.x - 0.01
             let depth = e.target.plane.dimensions.z - 0.01
             let height = width > depth ? width : depth
-            height /= 1
+            // height /= 1
             mrfood.mesh.geometry.copy(new THREE.BoxGeometry(width, height, depth))
         }
     })
