@@ -1,0 +1,11 @@
+List of 3D models and captures used in this project:
+
+Ramen: https://sketchfab.com/3d-models/ramen-01-04eded4df6f547689ccfaf946111c68e
+
+Sashimi Bowl: https://poly.cam/capture/1CC9E213-D9BC-4039-A199-6329F4D98932
+
+Pizza Margarita: https://sketchfab.com/3d-models/pizza-cdc2c970c84244b3b3293dd022b4fdfa
+
+White Pizza: https://sketchfab.com/3d-models/pizza-bigboss-pancho-29832125251a44939fae1a21a3288f88
+
+Shake-Don: my own capture from a local Richmond, BC restaurant
