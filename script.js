@@ -79,9 +79,10 @@
         document.querySelector("#desc").innerText = selectedDish.desc;
 
         let childArray = Array.from(document.querySelector("#models").childNodes);
+        let foodModels = Array.from(document.querySelector("#food-models").childNodes);
 
         // Hide all the dishes but the selected one
-        childArray.forEach(child =>{
+        foodModels.forEach(child =>{
             if (child.dataset.name == App.dishes[App.selected].name){
                 child.object3D.visible = true;
 
