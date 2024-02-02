@@ -3,8 +3,8 @@
 <head>
     <meta charset="utf-8">
     <title>AR Menu experience</title>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/mrjs@latest/dist/mr.js"></script> -->
-    <script src="dist/mr.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mrjs@latest/dist/mr.js"></script>
+    <!-- <script src="dist/mr.js"></script> -->
     <link rel="stylesheet" type="text/css" href="style.css"/>
 </head>
 
@@ -13,7 +13,7 @@
     <mr-app id="app">
         <mr-light color="white" intensity="2" data-position="0 0 0.5"></mr-light>
 
-        <mr-entity data-comp-anchor="type: plane; label:table;">
+       
        
             <mr-panel id="panel" class="stack">
 
@@ -41,8 +41,8 @@
                     </mr-div>
 
             </mr-panel>
-        </mr-entity>
-
+       
+        <mr-entity data-comp-anchor="type: plane; label:table;">
             <mr-volume 
                 id="volume" 
                 data-position="0 0 1"
@@ -50,7 +50,8 @@
                 <mr-food id="food"></mr-food>
                 <mr-entity id="food-models"></mr-entity>
             </mr-volume>
-
+        </mr-entity>
+        
     </mr-app>
 
 </body>
