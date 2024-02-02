@@ -63,11 +63,11 @@
             const params = {
                 color: '#FFFFFF',
                 scale: 0.5,
-                flowX: 0.5,
-                flowY: 0.5
+                flowX: 1,
+                flowY: 1
             }
 
-            const foodGeometry = new THREE.PlaneGeometry(0.99, 0.99, 0.99);
+            const foodGeometry = new THREE.BoxGeometry(0.99, 0.99, 0.99);
             this.food = new Food(foodGeometry,{
                 color: params.color,
                 scale: params.scale,
@@ -120,7 +120,7 @@
             let width = e.target.plane.dimensions.x - 0.01
             let depth = e.target.plane.dimensions.z - 0.01
             let height = width > depth ? width : depth
-            height /= 1.5
+            height /= 0.1
             mrfood.mesh.geometry.copy(new THREE.BoxGeometry(width, height, depth))
         }
     })
