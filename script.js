@@ -9,6 +9,7 @@
             model: 'ramen.glb',
             volume: 'ramen.glb',
             scale: 0.6,
+            scale2: 0.6,
             rotation: "0 0 0", 
             position: "0 0.1 0", 
             volumePosition: "0 0.1 0",
@@ -21,6 +22,7 @@
             model: 'sashimi_bowl.glb',
             volume: 'sashimi_bowl.glb',
             scale: 0.09,
+            scale2: 0.09,
             rotation: "0 0 0",
             position: "0 0.1 0",
             volumePosition: "0 0.1 0",
@@ -33,6 +35,7 @@
             model: 'sushi_bowl.glb',
             volume: 'sushi_bowl.glb',
             scale: 0.095,
+            scale2: 0.095,
             rotation: "0 0 0",
             position: "0 0.1 0",
             volumePosition: "0 0.1 0",
@@ -45,6 +48,7 @@
             model: 'pizza.glb',
             volume: 'pizza.glb',
             scale: 0.2,
+            scale2: 0.2,
             rotation: "0 0 0",
             position: "0 0.1 0",
             volumePosition: "0 0.1 0",
@@ -57,6 +61,7 @@
             model: 'white_pizza.glb',
             volume: 'white_pizza.glb',
             scale: 0.2,
+            scale2: 0.2,
             rotation: "0 0 0",
             position: "0 0.1 0",
             volumePosition: "0 0.1 0",
@@ -128,6 +133,10 @@
 
         Object.assign(model.style, {
             scale: dish.scale
+        })
+
+        Object.assign (volumeModel.style, {
+            scale: dish.scale2
         })
 
         document.querySelector("#models").append(model);
