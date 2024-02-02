@@ -9,12 +9,12 @@
 
 <body>
 
-    <mr-app debug=true id="app">
+    <mr-app id="app">
         <mr-light color="white" intensity="2" data-position="0 0.5 0"></mr-light>
 
-        <mr-entity data-comp-anchor="type: fixed;">
+        <!-- <mr-entity data-comp-anchor="type: fixed;"> -->
        
-            <mr-panel id="panel" class="stack">
+            <mr-panel id="panel" class="stack" data-comp-anchor="type: plane; label: table;">
 
                 <mr-div class="nav">
                     
@@ -37,9 +37,10 @@
                     </mr-div>
 
             </mr-panel>
-        </mr-entity>
+        <!-- </mr-entity> -->
 
             <mr-volume id="volume" data-comp-anchor="type: plane; label: table;">
+                <mr-model src="./assets/cube.glb"></mr-model>
                 <mr-food id="food"></mr-food>
                 <mr-entity id="food-models"></mr-entity>
             </mr-volume>
@@ -95,8 +96,6 @@
             let height = width > depth ? width : depth
             height /= 1.5
 
-            // const heightOffset = 0.5;
-            // food.object3D.position.copy(e.target.object3D.position);
             food.object3D.position.y += height + heightOffset;
 
             food.mesh.geometry.copy(new THREE.BoxGeometry(width, height, depth))
