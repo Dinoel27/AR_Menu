@@ -41,12 +41,14 @@
 
             </mr-panel>
         </mr-entity>
-            <mr-model 
-                id="model" 
+
+            <mr-volume 
+                id="volume" 
+                data-position="0 0 1"
                 data-comp-anchor="type: plane; label: table;">
                 <mr-food id="food"></mr-food>
                 <mr-entity id="food-models"></mr-entity>
-            </mr-model>
+            </mr-volume>
 
     </mr-app>
 
@@ -95,11 +97,11 @@
 
     /*********** start: mr.js app code ***********/
 
-    let model = document.getElementById('model')
+    let volume = document.getElementById('volume')
     let panel = document.getElementById('panel')
     let xrButton = document.getElementById('xr-button')
 
-    model.object3D.visible = false
+    volume.object3D.visible = false
 
     let worldPosition = new THREE.Vector3()
 
@@ -109,10 +111,10 @@
         if (!mrjsUtils.xr.isPresenting) {
             return
         }
-        model.object3D.visible = !model.object3D.visible
+        volume.object3D.visible = !volume.object3D.visible
     }
 
-    let food = document.getElementById('model')
+    let food = document.getElementById('food')
 
     document.addEventListener('anchored', (e) => {
 
@@ -121,12 +123,12 @@
             let depth = e.target.plane.dimensions.z - 0.01
             let height = width > depth ? width : depth
             height /= 0.1
-            mrfood.mesh.geometry.copy(new THREE.BoxGeometry(width, height, depth))
+            food.mesh.geometry.copy(new THREE.BoxGeometry(width, height, depth))
         }
     })
 
     document.addEventListener('exitXR', (e) => {
-        model.object3D.visible = false
+        volume.object3D.visible = false
     })
    </script>
 
