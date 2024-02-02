@@ -25,6 +25,8 @@
 
                 </mr-div>
 
+                <mr-button class="exp" src="./assets/cube.glb"><mr-model></mr-model></mr-button>
+
                 <mr-div class="illustration">
                     <mr-div id="models" style="z-index: 100"></mr-div>
                 </mr-div>
@@ -39,12 +41,12 @@
 
             </mr-panel>
         </mr-entity>
-            <mr-volume 
-                id="volume" 
+            <mr-model 
+                id="model" 
                 data-comp-anchor="type: plane; label: table;">
                 <mr-food id="food"></mr-food>
                 <mr-entity id="food-models"></mr-entity>
-            </mr-volume>
+            </mr-model>
 
     </mr-app>
 
@@ -55,29 +57,62 @@
 
     class MRFood extends MREntity {
 
-    customElements.define('mr-food', MRFood);
+        constructor(){
+            super()
+
+            const params = {
+                color: '#FFFFFF',
+                scale: 0.5,
+                flowX: 0.5,
+                flowY: 0.5
+            }
+
+            const foodGeometry = new THREE.PlaneGeometry(0.99, 0.99, 0.99);
+            this.food = new Food(foodGeometry,{
+                color: params.color,
+                scale: params.scale,
+                flowDirection: new THREE.Vector2(params.flowX, params.flowY),
+
+            });
+
+            const material = new THREE.MeshPhongMaterial({
+                color: '#FFFFFF',
+                side: 2,
+                transparent: true,
+                opacity: 0.1,
+                clipping: true
+            })
+
+            this.mesh = new THREE.Mesh(geometry, material)
+            this.object3D.add(this.food)
+        }
+    }
+
+    
 
 
     /*********** end: mr-food entity ***********/
 
     /*********** start: mr.js app code ***********/
 
-
+    let model = document.getElementById('model')
     let panel = document.getElementById('panel')
     let xrButton = document.getElementById('xr-button')
 
-    volume.object3D.visible = false
+    model.object3D.visible = false
 
     let worldPosition = new THREE.Vector3()
+
+    customElements.define('mr-food', MRFood);
 
     function toggleMR() {
         if (!mrjsUtils.xr.isPresenting) {
             return
         }
-        volume.object3D.visible = !volume.object3D.visible
+        model.object3D.visible = !model.object3D.visible
     }
 
-    let mrfood = document.getElementById('mrfood')
+    let food = document.getElementById('model')
 
     document.addEventListener('anchored', (e) => {
 
@@ -85,13 +120,13 @@
             let width = e.target.plane.dimensions.x - 0.01
             let depth = e.target.plane.dimensions.z - 0.01
             let height = width > depth ? width : depth
-            // height /= 1
+            height /= 1.5
             mrfood.mesh.geometry.copy(new THREE.BoxGeometry(width, height, depth))
         }
     })
 
     document.addEventListener('exitXR', (e) => {
-        volume.object3D.visible = false
+        model.object3D.visible = false
     })
    </script>
 
