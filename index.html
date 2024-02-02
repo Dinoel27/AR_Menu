@@ -10,11 +10,11 @@
 <body>
 
     <mr-app debug=true id="app">
-        <mr-light color="white" intensity="2" data-position="0 0 0.5"></mr-light>
+        <mr-light color="white" intensity="2" data-position="0 0.5 0"></mr-light>
 
-        <mr-entity data-comp-anchor="type: fixed;">
+        <!-- <mr-entity data-comp-anchor="type: fixed;"> -->
        
-            <mr-panel id="panel" class="stack">
+            <mr-panel id="panel" class="stack" data-comp-anchor="type: floating;">
 
                 <mr-div class="nav">
                     
@@ -37,7 +37,7 @@
                     </mr-div>
 
             </mr-panel>
-        </mr-entity>
+        <!-- </mr-entity> -->
 
             <mr-volume id="volume" data-comp-anchor="type: plane; label: table;">
                 <mr-food id="food"></mr-food>
@@ -55,14 +55,6 @@
 
         constructor(){
             super()
-
-            const params = {
-                color: '#FFFFFF',
-                scale: 0.5,
-                flowX: 1,
-                flowY: 1
-            }
-
             const geometry = new THREE.BoxGeometry(0.99, 0.99, 0.99);
 
 
