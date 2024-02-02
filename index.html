@@ -9,7 +9,7 @@
 
 <body>
 
-    <mr-app id="app">
+    <mr-app debug=true id="app">
         <mr-light color="white" intensity="2" data-position="0 0 0.5"></mr-light>
 
         <mr-entity data-comp-anchor="type: fixed;">
@@ -21,7 +21,7 @@
             <mr-button style="margin-left: 10px;" onclick="App.prev()"> Prev </mr-button>
             <mr-button style="margin-left: 10px;" onclick="App.next()"> Next </mr-button>
             <mr-button class="button-order" style="margin-left:10px">Order Now</mr-button>
-            <mr-button class="exp" src="./assets/cube.glb"><mr-model></mr-model></mr-button>
+            <mr-button style="margin-left:10px;" src="./assets/cube.glb"><mr-model></mr-model></mr-button>
                 </mr-div>
 
                 <mr-div class="illustration">
@@ -63,28 +63,15 @@
                 flowY: 1
             }
 
-            const foodGeometry = new THREE.BoxGeometry(0.99, 0.99, 0.99);
-            this.food = new Food(foodGeometry,{
-                color: params.color,
-                scale: params.scale,
-                flowDirection: new THREE.Vector2(params.flowX, params.flowY),
+            const geometry = new THREE.BoxGeometry(0.99, 0.99, 0.99);
 
-            });
 
-            const material = new THREE.MeshPhongMaterial({
-                color: '#FFFFFF',
-                side: 2,
-                transparent: true,
-                opacity: 0.1,
-                clipping: true
-            })
-
-            this.mesh = new THREE.Mesh(geometry, material)
-            this.object3D.add(this.food)
+            this.mesh = new THREE.Mesh(geometry)
+            this.object3D.add(this.mesh)
         }
     }
 
-    
+    customElements.define('mr-food', MRFood);
 
 
     /*********** end: mr-food entity ***********/
@@ -98,8 +85,6 @@
     volume.object3D.visible = false
 
     let worldPosition = new THREE.Vector3()
-
-    customElements.define('mr-food', MRFood);
 
     function toggleMR() {
         if (!mrjsUtils.xr.isPresenting) {
@@ -116,10 +101,10 @@
             let width = e.target.plane.dimensions.x - 0.01
             let depth = e.target.plane.dimensions.z - 0.01
             let height = width > depth ? width : depth
-            height /= 5
+            height /= 1.5
 
-            const heightOffset = 0.5;
-            food.object3D.position.copy(e.target.object3D.position);
+            // const heightOffset = 0.5;
+            // food.object3D.position.copy(e.target.object3D.position);
             food.object3D.position.y += height + heightOffset;
 
             food.mesh.geometry.copy(new THREE.BoxGeometry(width, height, depth))
@@ -130,7 +115,7 @@
         volume.object3D.visible = false
     })
    </script>
-
-    
     <script src="script.js"></script>
+
+
 </html>
