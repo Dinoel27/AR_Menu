@@ -14,7 +14,7 @@
 
         <!-- <mr-entity data-comp-anchor="type: fixed;"> -->
        
-            <mr-panel id="panel" class="stack" data-comp-anchor="type: plane; label: table;">
+            <mr-panel id="panel" class="stack" data-comp-anchor="type: plane;">
 
                 <mr-div class="nav">
                     
@@ -24,9 +24,6 @@
             <mr-button style="margin-left:10px;" src="./assets/cube.glb"><mr-model></mr-model></mr-button>
                 </mr-div>
 
-                <mr-div class="illustration">
-                    <mr-div id="models" style="z-index: 100"></mr-div>
-                </mr-div>
 
                 <mr-div class="information">
                     <mr-div class="tight-stack">
@@ -42,7 +39,12 @@
             <mr-volume id="volume" data-comp-anchor="type: plane; label: table;">
                 <mr-model src="./assets/cube.glb"></mr-model>
                 <mr-food id="food"></mr-food>
-                <mr-entity id="food-models"></mr-entity>
+                <mr-entity id="food-models">
+                    <mr-div class="illustration">
+                        <mr-div id="models" style="z-index: 100"></mr-div>
+                    </mr-div>
+
+                </mr-entity>
             </mr-volume>
 
     </mr-app>
