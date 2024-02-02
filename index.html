@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <title>AR Menu experience</title>
     <script src="https://cdn.jsdelivr.net/npm/mrjs@latest/dist/mr.js"></script>
-    <!-- <script src="dist/mr.js"></script> -->
     <link rel="stylesheet" type="text/css" href="style.css"/>
 </head>
 
@@ -13,7 +12,7 @@
     <mr-app id="app">
         <mr-light color="white" intensity="2" data-position="0 0 0.5"></mr-light>
 
-       
+        <mr-entity data-comp-anchor="type: fixed;">
        
             <mr-panel id="panel" class="stack">
 
@@ -22,11 +21,8 @@
             <mr-button style="margin-left: 10px;" onclick="App.prev()"> Prev </mr-button>
             <mr-button style="margin-left: 10px;" onclick="App.next()"> Next </mr-button>
             <mr-button class="button-order" style="margin-left:10px">Order Now</mr-button>
-
-
+            <mr-button class="exp" src="./assets/cube.glb"><mr-model></mr-model></mr-button>
                 </mr-div>
-
-                <mr-button class="exp" src="./assets/cube.glb"><mr-model></mr-model></mr-button>
 
                 <mr-div class="illustration">
                     <mr-div id="models" style="z-index: 100"></mr-div>
@@ -41,17 +37,13 @@
                     </mr-div>
 
             </mr-panel>
-       
-        <mr-entity data-comp-anchor="type: plane; label:table;">
-            <mr-volume 
-                id="volume" 
-                data-position="0 0 1"
-                data-comp-anchor="type: plane; label: table;">
+        </mr-entity>
+
+            <mr-volume id="volume" data-comp-anchor="type: plane; label: table;">
                 <mr-food id="food"></mr-food>
                 <mr-entity id="food-models"></mr-entity>
             </mr-volume>
-        </mr-entity>
-        
+
     </mr-app>
 
 </body>
@@ -124,7 +116,12 @@
             let width = e.target.plane.dimensions.x - 0.01
             let depth = e.target.plane.dimensions.z - 0.01
             let height = width > depth ? width : depth
-            height /= 0.1
+            height /= 5
+
+            const heightOffset = 0.5;
+            food.object3D.position.copy(e.target.object3D.position);
+            food.object3D.position.y += height + heightOffset;
+
             food.mesh.geometry.copy(new THREE.BoxGeometry(width, height, depth))
         }
     })
