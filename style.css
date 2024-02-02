@@ -44,6 +44,11 @@ mr-button {
     background-color: greenyellow; 
 }
 
+.exp{
+    scale: 0.5;
+    background-color: black;
+}
+
 .button-order{
     padding: 10px;
     font-size: 18px;
