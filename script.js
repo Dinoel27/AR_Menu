@@ -6,8 +6,8 @@
         {
             name: "Ramen",
             cuisine: "Japanese",
-            model: 'ramen.glb',
-            volume: 'ramen.glb',
+            model: 'cube.glb',
+            volume: 'cube.glb',
             scale: 0.6,
             scale2: 0.6,
             rotation: "0 0 0", 
@@ -92,10 +92,18 @@
         let foodModels = Array.from(document.querySelector("#food-models").childNodes);
 
         // Hide all the dishes but the selected one
-        foodModels.forEach(child =>{
+        childArray.forEach(child =>{
             if (child.dataset.name == App.dishes[App.selected].name){
                 child.object3D.visible = true;
 
+            } else {
+                child.object3D.visible = false;
+            }
+        });
+
+        foodModels.forEach(child =>{
+            if(child.dataset.name == App.dishes[App.selected].name){
+                child.object3D.visible = true;
             } else {
                 child.object3D.visible = false;
             }
@@ -111,7 +119,7 @@
             App.render();
             return true;
         }
-    }
+    };
 
     //Magic reactivity
     const App = new Proxy(__appState, handler);
