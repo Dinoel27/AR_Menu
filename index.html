@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <title>AR Menu experience</title>
     <script src="https://cdn.jsdelivr.net/npm/mrjs@latest/dist/mr.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css"/>
+    <link rel="stylesheet" href="style.css"/>
 </head>
 
 <body>
@@ -21,7 +21,7 @@
             <mr-button style="margin-left: 10px;" onclick="App.prev()"> Prev </mr-button>
             <mr-button style="margin-left: 10px;" onclick="App.next()"> Next </mr-button>
             <mr-button class="button-order" style="margin-left:10px">Order Now</mr-button>
-            <mr-button style="margin-left:10px;" src="./assets/cube.glb"><mr-model></mr-model></mr-button>
+            <!-- <mr-button style="margin-left:10px;" src="./assets/cube.glb"><mr-model></mr-model></mr-button> -->
                 </mr-div>
 
                 <mr-div class="illustration">
@@ -39,14 +39,14 @@
             </mr-panel>
         </mr-entity>
 
-            <mr-volume id="volume"
-             data-comp-anchor="type: plane; label: table;">
-                <mr-food id="food"></mr-food>
-                <mr-entity id="food-models"></mr-entity>
+            <mr-volume 
+            id="volume"
+            data-comp-anchor="type: plane; label: table;">
+            <mr-food id="food"></mr-food>
+            <mr-entity id="food-models"></mr-entity>
             </mr-volume>
 
     </mr-app>
-
 </body>
 
        <script>
@@ -56,10 +56,19 @@
 
         constructor(){
             super()
+
             const geometry = new THREE.BoxGeometry(0.99, 0.99, 0.99);
 
+                const material = new THREE.MeshPhongMaterial({
+                color: '#0235ff',
+                side: 2,
+                transparent: true,
+                opacity: 0.2,
+                specular: '#7989c4',
+                clipping: true
+            })
 
-            this.mesh = new THREE.Mesh(geometry)
+            this.mesh = new THREE.Mesh(geometry. material)
             this.object3D.add(this.mesh)
         }
     }
@@ -95,7 +104,6 @@
             let depth = e.target.plane.dimensions.z - 0.01
             let height = width > depth ? width : depth
             height /= 1.5
-
             food.mesh.geometry.copy(new THREE.BoxGeometry(width, height, depth))
         }
     })
