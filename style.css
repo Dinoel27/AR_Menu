@@ -1,0 +1,115 @@
+mr-app {
+    line-height: 100%;
+    font-size: 16px;
+    color:black;
+}
+
+.nav {
+    --space-around: 20px; 
+    --height: 72px;
+    position:fixed; 
+    display: flex;
+    flex-direction: row; 
+    bottom: var(--space-around);
+    left: var(--space-around);
+    width: calc(100% - var(--space-around) - var(--space-around));
+    height: var(--height);
+    background-color: green;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 20px;
+    border-radius: 20px;
+    z-index: 2;
+
+}
+
+.stack {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 10px;
+    padding: 0 30px;
+}
+
+.tight-stack {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 0;
+}
+
+mr-button {
+    padding: 10px; 
+    margin-bottom: 15px;
+    font-size: 20px; 
+    color: black;
+    background-color: greenyellow; 
+}
+
+
+.button-order{
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    letter-spacing: 2px;
+    font-weight: 500;
+    color: white;
+    background-color:#FF7A00;
+}
+
+/* hover displays grey at default bug or feature? */
+mr-button.button-order:hover{
+    background-color: blue;
+}
+
+mr-button.hover {
+    background-color: lightslategrey;
+    color: white;
+}
+
+.information {
+    display: flex;
+    flex-direction: column;
+    align-items: start; 
+    justify-content: start;
+    gap: 20px;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    max-width: 520px;
+}
+
+.illustration{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 300px;
+}
+
+#desc {
+    font-family:Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+#cuisine {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 16px;
+    font-weight: 400;
+    font-style: italic;
+}
+
+#allergens {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    font-style: bold;
+}
+
+#name {
+    white-space: nowrap;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    font-weight: 600; 
+    font-style: bold; 
+}
