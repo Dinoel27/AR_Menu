@@ -11,7 +11,7 @@
 
     <mr-app debug=true id="app">
         <mr-light color="white" intensity="1" data-position="0 1 0.5"></mr-light>
-        <mr-entity data-comp-anchor="type: fixed;">
+        <mr-entity data-comp-anchor="type: floating;">
        
             <mr-panel id="panel" class="stack">
 
@@ -42,7 +42,7 @@
 
         </mr-entity>
 
-        <mr-entity data-comp-anchor="type: floating;">
+        <mr-entity data-comp-anchor="type: fixed;">
         <mr-panel id="tabbar">
             <mr-button onClick="switchTab(0)" class="col-1">panel 1</mr-button>
             <mr-button onClick="switchTab(1)" class="col-2">panel 2</mr-button>
@@ -153,9 +153,9 @@
         }
     })
 
-    document.addEventListener('exitXR', (e) => {
-        volume.object3D.visible = false
-    })
+    // document.addEventListener('exitXR', (e) => {
+    //     volume.object3D.visible = false
+    // })
    </script>
     <script>
         let rig = document.querySelector('#rig')
@@ -177,6 +177,11 @@
 
             let forwardVec = getForward(rig)
 
+            for (let panel of panels){
+
+                totalWidth += panel.width
+            }
+            
             for (let panel of panels){
                 if (unfolded) {
                     panel.object3D.position.set(0, 0, 0)
