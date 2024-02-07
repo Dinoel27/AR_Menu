@@ -13,50 +13,22 @@
         <mr-light color="white" intensity="1" data-position="0 1 0.5"></mr-light>
         <mr-entity data-comp-anchor="type:floating;">
         
-            <mr-panel id="panel" class="stack">
+            <mr-panel id="tabbar" class="stack">
 
                 <mr-div class="nav" data-position= "0 0 0.001">
             <mr-button style="margin-left: auto;" onclick="toggleMR()">Actual Size</mr-button>
             <mr-button style="margin-left: 10px;" onclick="App.prev()"> Prev </mr-button>
             <mr-button style="margin-left: 10px;" onclick="App.next()"> Next </mr-button>
             <mr-button class="button-order" style="margin-left:10px">Order Now</mr-button>
-            <mr div class="navbar">
+
             <mr-button onClick="switchTab(0)" class="col-1">panel 1</mr-button>
             <mr-button onClick="switchTab(1)" class="col-2">panel 2</mr-button>
             <mr-button onClick="switchTab(2)" class="col-3">panel 3</mr-button>
             <mr-button onClick="spread()" class="col-4">spread</mr-button>
-            </mr>
+
                 </mr-div>
-
-                <mr-div class="illustration">
-                    <mr-div id="models" style="z-index: 100"></mr-div>
-                </mr-div>
-
-                <mr-div class="information">
-                    <mr-div class="tight-stack">
-                        <mr-text id="name">loading</mr-text>
-                        <mr-text id="cuisine">loading</mr-text>
-                        
-                    </mr-div>
-                    <mr-text id="desc">loading</mr-text>
-                    <mr-text id="allergens">loading</mr-text>
-                    </mr-div>
-
             </mr-panel>
 
-        </mr-entity>
-
-        <!-- <mr-entity data-comp-anchor="type: floating;">
-        <mr-panel id="tabbar">
-        
-
-
-        </mr-panel> -->
-
-
-        <!-- panel created  -->
-
-        <mr-entity data-comp-anchor="type:floating;">
         <mr-panel id="panel1" class="layout front">
             <mr-text class="col-2">
                 testing out tabs 
@@ -70,12 +42,22 @@
         </mr-panel>
 
         <mr-panel id="panel3" class="layout front">
-            <mr-text class="col-2">
-                testing testing testing tabs 
-            </mr-text>
-        </mr-panel>
-    </mr-entity>
+          
+            <mr-div class="illustration">
+                <mr-div id="models" style="z-index: 100"></mr-div>
+            </mr-div>
 
+            <mr-div class="information">
+                <mr-div class="tight-stack">
+                    <mr-text id="name">loading</mr-text>
+                    <mr-text id="cuisine">loading</mr-text>
+                    
+                </mr-div>
+                <mr-text id="desc">loading</mr-text>
+                <mr-text id="allergens">loading</mr-text>
+                </mr-div>
+
+        </mr-panel>
 
         <mr-volume
         id="volume" 
@@ -84,6 +66,7 @@
         <mr-entity id="food-models"></mr-entity>
         </mr-volume>
 
+    </mr-entity>
     </mr-app>
 </body>
 
