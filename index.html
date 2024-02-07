@@ -11,7 +11,7 @@
 
     <mr-app debug=true id="app">
         <mr-light color="white" intensity="1" data-position="0 1 0.5"></mr-light>
-        <mr-entity data-comp-anchor="type: fixed; label:table;">
+        <mr-entity data-comp-anchor="type:floating;">
         
             <mr-panel id="panel" class="stack">
 
@@ -20,7 +20,11 @@
             <mr-button style="margin-left: 10px;" onclick="App.prev()"> Prev </mr-button>
             <mr-button style="margin-left: 10px;" onclick="App.next()"> Next </mr-button>
             <mr-button class="button-order" style="margin-left:10px">Order Now</mr-button>
-            <mr-button style="margin-left: auto;" onclick="panelClicked()">test</mr-button>
+
+            <mr-button onClick="switchTab(0)" class="col-1">panel 1</mr-button>
+            <mr-button onClick="switchTab(1)" class="col-2">panel 2</mr-button>
+            <mr-button onClick="switchTab(2)" class="col-3">panel 3</mr-button>
+            <mr-button onClick="spread()" class="col-4">spread</mr-button>
 
                 </mr-div>
 
@@ -42,42 +46,28 @@
 
         </mr-entity>
 
-        <mr-entity data-comp-anchor="type: floating;">
+        <!-- <mr-entity data-comp-anchor="type: floating;">
         <mr-panel id="tabbar">
-            <mr-button onClick="switchTab(0)" class="col-1">panel 1</mr-button>
-            <mr-button onClick="switchTab(1)" class="col-2">panel 2</mr-button>
-            <mr-button onClick="switchTab(2)" class="col-3">panel 3</mr-button>
-            <mr-button onClick="spread()" class="col-4">spread</mr-button>
+        
 
 
-        </mr-panel>
+        </mr-panel> -->
 
 
         <!-- panel created  -->
-        <mr-panel id="panel1" data-position="0 0 0.001" class="layout front">
-            <mr-text class="col-2 title">
-
-                Panel 1 
-
-            </mr-text>
+        <mr-panel id="panel1" class="layout front">
             <mr-text class="col-2">
                 testing out tabs 
             </mr-text>
         </mr-panel> 
 
         <mr-panel id="panel2" class="layout front">
-            <mr-text class="col-2 title">
-                Panel 2
-            </mr-text>
             <mr-text class="col-2">
                 testing testing tabs 
             </mr-text>
         </mr-panel>
 
         <mr-panel id="panel3" class="layout front">
-            <mr-text class="col-2 title">
-                Panel 3
-            </mr-text>
             <mr-text class="col-2">
                 testing testing testing tabs 
             </mr-text>
