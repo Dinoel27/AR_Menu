@@ -160,7 +160,7 @@ mr-button.hover {
     position:fixed;
     bottom: 0;
     left: 0;
-    width: 50%;
+    width: 100%;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     padding: 1vh;
