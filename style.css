@@ -165,7 +165,7 @@ mr-button.hover {
     grid-template-columns: 1fr 1fr 1fr 1fr;
     padding: 1vh;
     height: fit-content;
-    z-index: 4;
+    z-index: 0;
   }
 
   #tabbar * {
@@ -173,7 +173,7 @@ mr-button.hover {
   }
 
   .front {
-    z-index: 2;
+    z-index: 0;
   }
 
   .title {
