@@ -16,16 +16,16 @@
             <mr-panel id="tabbar" class="stack">
 
                 <mr-div class="nav" data-position= "0 0 0.001">
+            <mr-button style="margin-left: 10px;" onClick="switchTab(0)" class="col-1">panel 1</mr-button>
+            <mr-button style="margin-left: 10px;" onClick="switchTab(1)" class="col-2">panel 2</mr-button>
+            <mr-button style="margin-left: 10px;" onClick="switchTab(2)" class="col-3">panel 3</mr-button>
+            <mr-button style="margin-left: 10px;" onClick="spread()" class="col-4">spread</mr-button>
+
             <mr-button style="margin-left: auto;" onclick="toggleMR()">Actual Size</mr-button>
             <mr-button style="margin-left: 10px;" onclick="App.prev()"> Prev </mr-button>
             <mr-button style="margin-left: 10px;" onclick="App.next()"> Next </mr-button>
             <mr-button class="button-order" style="margin-left:10px">Order Now</mr-button>
 
-    
-            <mr-button style="margin-left: 10px;" onClick="switchTab(0)" class="col-1">panel 1</mr-button>
-            <mr-button style="margin-left: 10px;" onClick="switchTab(1)" class="col-2">panel 2</mr-button>
-            <mr-button style="margin-left: 10px;" onClick="switchTab(2)" class="col-3">panel 3</mr-button>
-            <mr-button style="margin-left: 10px;" onClick="spread()" class="col-4">spread</mr-button>
         </mr-div>
             
             </mr-panel>
@@ -133,60 +133,6 @@
     //     volume.object3D.visible = false
     // })
    </script>
-    <script>
-        let rig = document.querySelector('#rig')
-        let panels = document.querySelectorAll('.layout')
-
-        let frontIndex = 0
-
-        function switchTab(index){
-            panels[frontIndex].classList.remove('front')
-            panels[index].classList.add('front')
-            frontIndex = index
-        }
-
-        let unfolded = false 
-
-        function spread(){
-            let index = 0 
-            let totalWidth = 0
-
-            let forwardVec = getForward(rig)
-
-            for (let panel of panels){
-
-                totalWidth += panel.width
-            }
-            
-            for (let panel of panels){
-                if (unfolded) {
-                    panel.object3D.position.set(0, 0, 0)
-                } else{
-                    panel.object3D.position.set(((panel.width) * index) - (totalWidth / panels.length), 0, ((index + 1) % 2) * 0.3)
-                    index += 1
-                }
-                panel.object3D.lookAt(forwardVec)
-
-            } 
-
-            unfolded = !unfolded
-        }
-
-        function getForward(entity){
-            
-            let localForward = new THREE.Vector3(0, 0, 0.5);
-
-            let worldForward = entity.object3D.localToWorld(localForward)
-
-            return worldForward.applyQuaternion(entity.object3D.quaternion);
-
-        }
-
-        document.addEventListener('exitXR', () =>{
-            unfolded = false;
-            spread()
-        })
-
-    </script>
+   
     <script src="script.js"></script>
 </html>
