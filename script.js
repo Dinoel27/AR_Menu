@@ -182,3 +182,60 @@
     document.addEventListener('DOMContentLoaded', function(){
         App.selected = 0;
     });
+
+
+    // Testing out tabs 
+
+    let rig = document.querySelector('#rig')
+    let panels = document.querySelectorAll('.layout')
+
+    let frontIndex = 0
+
+    function switchTab(index){
+        panels[frontIndex].classList.remove('front')
+        panels[index].classList.add('front')
+        frontIndex = index
+    }
+
+    let unfolded = false 
+
+    function spread(){
+        let index = 0 
+        let totalWidth = 0
+
+        let forwardVec = getForward(rig)
+
+        for (let panel of panels){
+
+            totalWidth += panel.width
+        }
+        
+        for (let panel of panels){
+            if (unfolded) {
+                panel.object3D.position.set(0, 0, 0)
+            } else{
+                panel.object3D.position.set(((panel.width) * index) - (totalWidth / panels.length), 0, ((index + 1) % 2) * 0.3)
+                index += 1
+            }
+            panel.object3D.lookAt(forwardVec)
+
+        } 
+
+        unfolded = !unfolded
+    }
+
+    function getForward(entity){
+        
+        let localForward = new THREE.Vector3(0, 0, 0.5);
+
+        let worldForward = entity.object3D.localToWorld(localForward)
+
+        return worldForward.applyQuaternion(entity.object3D.quaternion);
+
+    }
+
+    document.addEventListener('exitXR', () =>{
+        unfolded = false;
+        spread()
+    })
+
