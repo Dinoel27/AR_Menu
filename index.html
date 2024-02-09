@@ -10,7 +10,7 @@
 
 <body>
 
-    <mr-app debug="true" id="app">
+    <mr-app id debug="true" class="app">
         <mr-light color="white" intensity="1" data-position="0 1 0.5"></mr-light>
         <mr-entity id="rig" data-comp-anchor="type:fixed;">
             
@@ -21,16 +21,13 @@
             <mr-button onClick="spread()" class="col-5">spread</mr-button> 
             </mr-panel>
 
-            <mr-panel id="nav"class="nav" data-position="0 0.1 0.003">
+            <mr-panel id="nav"class="nav" data-position="0 0.09 0.005">
                 <mr-button style="margin-left: auto;" onclick="toggleMR()">Actual Size</mr-button>
                 <mr-button style="margin-left: 10px;" onclick="App.prev()"> Prev </mr-button>
                 <mr-button style="margin-left: 10px;" onclick="App.next()"> Next </mr-button>
                 <mr-button class="button-order" style="margin-left:10px">Order Now</mr-button>
             </mr-panel>
-
-
             
-
             <mr-panel id="panel1" class="stack" class="col-2">
                 <mr-panel id="panel1" class="layout">
 
@@ -151,9 +148,9 @@
         }
     })
 
-    document.addEventListener('exitXR', (e) => {
-        volume.object3D.visible = false
-    })
+    // document.addEventListener('exitXR', (e) => {
+    //     volume.object3D.visible = false
+    // })
    </script>
 
     <script>
