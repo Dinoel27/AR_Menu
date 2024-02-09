@@ -306,13 +306,13 @@ mr-button.hover {
 @media (max-width: 768px) {
     .layout {
         grid-template-columns: 1fr; /* Stack grid items vertically on smaller screens */
-        padding-top: 3vw; /* Adjust padding for smaller screens */
+        padding-top: 4vw; /* Adjust padding for smaller screens */
         gap: 10px; /* Adjust gap for tighter spacing */
     }
 
 
     .information{
-        max-width: 100%; /* Allows the content to be more fluid on smaller screens */
+        max-width: calc(100% - var(--space-around) - var(--space-around)); /* Allows the content to be more fluid on smaller screens */
         gap: 15px; /* Adjust gap for tighter spacing on smaller screens */
         height: auto;
     }
