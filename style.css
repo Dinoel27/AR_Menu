@@ -23,21 +23,20 @@ mr-app {
 
 }
 
+.maindesc {
+    width: calc(100% - var(--space-around) - var(--space-around));
+    left: var(--height);
+   
+}
+
 .stack {
     display: flex;
-    flex-flow: column nowrap;
+    flex-flow: column wrap;
     align-items: center;
     gap: 10px;
     padding: 0 30px;
 }
 
-.stack2 {
-    display: flex; 
-    flex-flow: column nowrap;
-    align-items: center; 
-    gap: 10px; 
-    padding: 0 30px; 
-}
 
 .tight-stack {
     display: flex;
@@ -85,7 +84,19 @@ mr-button.hover {
     max-width: 520px;
 }
 
+.information1 {
+    /* display: block;
+    flex-direction: row; */
+    /* gap: 20px;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    max-width: 200px; */
+    max-width: 300px;
+}
+
 .illustration{
+    grid-column: 2;
+
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -115,11 +126,27 @@ mr-button.hover {
 }
 
 #name {
-    white-space: nowrap;
+    /* white-space: nowrap; */
     font-family: Arial, Helvetica, sans-serif;
     font-size: 24px;
     font-weight: 600; 
     font-style: bold; 
+}
+
+#ingredients {
+    /* white-space: nowrap; */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    font-style: normal;
+}
+
+#recipe {
+    /* white-space: nowrap; */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    font-style: normal; 
 }
 
 /* test of panels */
@@ -130,14 +157,46 @@ mr-button.hover {
 
   .col-2{
     grid-column: 2;
+
+    margin-top: 150px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: start; 
+    justify-content: start;
+    gap: 20px;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    max-width: 520px;
   }
 
   .col-3{
     grid-column: 3;
+    margin-top: 150px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: start; 
+    justify-content: start;
+    gap: 20px;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    max-width: 520px;
   }
 
   .col-4{
     grid-column: 4;
+
+    margin-top: 150px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: start; 
+    justify-content: start;
+    gap: 20px;
+    letter-spacing: 1px;
+    line-height: 1.5;
+    max-width: 520px;
   }
 
   #navbar {
@@ -173,7 +232,7 @@ mr-button.hover {
   }
 
   .front {
-    z-index: 0;
+    z-index: 2;
   }
 
   .title {
@@ -221,3 +280,40 @@ mr-button.hover {
     margin: 10px;
     width: fit-content;
   }
+
+  .layout {
+    background-color: white;
+    padding-top: 6vw;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 1vw;
+    grid-auto-rows: auto;
+  }
+
+.layout2 {
+    background-color: white; /* from .layout */
+    padding-top: 6vw; /* from .layout */
+    display: grid; /* prioritized from .layout */
+    grid-template-columns: 1fr 2fr 1fr; /* from .layout */
+    gap: 20px; /* adjusted to match .information's spacing */
+    align-items: start; /* adapted from .information for grid alignment */
+    justify-content: start; /* adapted from .information for grid alignment, though its direct effect is minimal in a grid context */
+    letter-spacing: 1px; /* from .information */
+    line-height: 1.5; /* from .information */
+    max-width: 520px; /* from .information */
+}
+
+@media (max-width: 768px) {
+    .layout {
+        grid-template-columns: 1fr; /* Stack grid items vertically on smaller screens */
+        padding-top: 3vw; /* Adjust padding for smaller screens */
+        gap: 10px; /* Adjust gap for tighter spacing */
+    }
+
+
+    .information{
+        max-width: 100%; /* Allows the content to be more fluid on smaller screens */
+        gap: 15px; /* Adjust gap for tighter spacing on smaller screens */
+        height: auto;
+    }
+}
