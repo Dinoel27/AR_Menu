@@ -290,19 +290,6 @@ mr-button.hover {
     grid-auto-rows: auto;
   }
 
-.layout2 {
-    background-color: white; /* from .layout */
-    padding-top: 6vw; /* from .layout */
-    display: grid; /* prioritized from .layout */
-    grid-template-columns: 1fr 2fr 1fr; /* from .layout */
-    gap: 20px; /* adjusted to match .information's spacing */
-    align-items: start; /* adapted from .information for grid alignment */
-    justify-content: start; /* adapted from .information for grid alignment, though its direct effect is minimal in a grid context */
-    letter-spacing: 1px; /* from .information */
-    line-height: 1.5; /* from .information */
-    max-width: 520px; /* from .information */
-}
-
 @media (max-width: 768px) {
     .layout {
         grid-template-columns: 1fr; /* Stack grid items vertically on smaller screens */
