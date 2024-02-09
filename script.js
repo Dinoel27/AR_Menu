@@ -17,6 +17,8 @@
             volumePosition: "-0.01 -0.015 -0.01",
             desc: "Ingredients: Bean sprouts, Bamboo shoots, Shoyu broth, Chashu pork, Chicken, Corn, Ginger, Green onions, Miso paste, Mushrooms, Nori, Ramen noodles, Sesame oil, Sesame seeds, Soy sauce, Tofu.",
             allergens: "Allergens: Eggs (used in soft-boiled eggs), Sesame (in sesame oil and seeds), Soy (in soy sauce and toppings), Wheat (in noodles and broths).",
+            recipe: "Bring broth to a boil. \nAdd vegetables and meat. \nWait for broth to smell tasty and add noodels.\n Etc",
+            ingredients: "beans, fish, rice, broth etc",
         },
 
         {
@@ -33,6 +35,8 @@
             volumePosition: "-0.01 -0.010 -0.01",
             desc: "Ingredients: Sashimi-grade fish (such as tuna or salmon), rice (check for potential cross-contamination if allergic to gluten), avocado, cucumber, edamame, seaweed (Nori), soy sauce, pickled ginger, wasabi.",
             allergens: "Allergens: soy sauce, fish.",
+            recipe: "Cook rice. \nAdd fish. \nAdd vegetables. \nAdd other testy foods.\n",
+            ingredients: "tuna or salmon, rice, soy sauce, avocado, cucumber",
         },
 
         {
@@ -49,6 +53,8 @@
             volumePosition: "-0.01 0.05 -0.01",
             desc: "Ingredients: Sushi Rice, Salmon (Shake), Avocado, Cucumber, Nori (Seaweed), Sesame Seeds, Soy Sauce (contains soy and wheat; choose gluten-free if needed), Pickled Ginger, Wasabi.",
             allergens: "Allergens: soy, fish (salmon).",
+            recipe: "Cook tasty food. \nEnjoy food.\n Live wholesome life.\n",
+            ingredients: "nori, rice, salmon, sesame seeds",
         },
 
         // {
@@ -103,6 +109,8 @@
         document.querySelector("#cuisine").innerText = selectedDish.cuisine;
         document.querySelector("#desc").innerText = selectedDish.desc;
         document.querySelector("#allergens").innerText = selectedDish.allergens;
+        document.querySelector("#recipe").innerText = selectedDish.recipe;
+        document.querySelector("#ingredients").innerText = selectedDish.ingredients;
 
         let childArray = Array.from(document.querySelector("#models").childNodes);
         let foodModels = Array.from(document.querySelector("#food-models").childNodes);
