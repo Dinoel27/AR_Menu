@@ -3,70 +3,92 @@
 <head>
     <meta charset="utf-8">
     <title>AR Menu experience</title>
-    <script src="https://cdn.jsdelivr.net/npm/mrjs@latest/dist/mr.js"></script>
-    <link rel="stylesheet" type="text/css" href="style.css" />
+    <!-- <script src="https://cdn.jsdelivr.net/npm/mrjs@latest/dist/mr.js"></script> -->
+    <script src="./dist/mr.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
 </head>
 
 <body>
 
-    <mr-app debug=true id="app">
+    <mr-app debug="true" id="app">
         <mr-light color="white" intensity="1" data-position="0 1 0.5"></mr-light>
-        <mr-entity data-comp-anchor="type:floating;">
-        
-            <mr-panel id="tabbar" class="stack">
-
-                <mr-div class="nav" data-position= "0 0 0.001">
-            <mr-button style="margin-left: 10px;" onClick="switchTab(0)" class="col-1">panel 1</mr-button>
-            <mr-button style="margin-left: 10px;" onClick="switchTab(1)" class="col-2">panel 2</mr-button>
-            <mr-button style="margin-left: 10px;" onClick="switchTab(2)" class="col-3">panel 3</mr-button>
-            <mr-button style="margin-left: 10px;" onClick="spread()" class="col-4">spread</mr-button>
-
-            <mr-button style="margin-left: auto;" onclick="toggleMR()">Actual Size</mr-button>
-            <mr-button style="margin-left: 10px;" onclick="App.prev()"> Prev </mr-button>
-            <mr-button style="margin-left: 10px;" onclick="App.next()"> Next </mr-button>
-            <mr-button class="button-order" style="margin-left:10px">Order Now</mr-button>
-
-        </mr-div>
+        <mr-entity id="rig" data-comp-anchor="type:fixed;">
             
+            <mr-panel id="tabbar" data-position="0 0 0.005">
+            <mr-button onclick="switchTab(0)" class="col-2">Food item</mr-button>
+            <mr-button onclick="switchTab(1)" class="col-3">Recipe</mr-button>
+            <mr-button onClick="switchTab(2)" class="col-4">Ingredients</mr-button>
+            <mr-button onClick="spread()" class="col-5">spread</mr-button> 
             </mr-panel>
 
-        <mr-panel id="panel1" class="layout front">
-            <mr-text class="col-2">
-                testing out tabs 
-            </mr-text>
-        </mr-panel> 
+            <mr-panel id="nav"class="nav" data-position="0 1 0.003">
+                <mr-button style="margin-left: auto;" onclick="toggleMR()">Actual Size</mr-button>
+                <mr-button style="margin-left: 10px;" onclick="App.prev()"> Prev </mr-button>
+                <mr-button style="margin-left: 10px;" onclick="App.next()"> Next </mr-button>
+                <mr-button class="button-order" style="margin-left:10px">Order Now</mr-button>
+            </mr-panel>
 
-        <mr-panel id="panel2" class="layout front">
-            <mr-text class="col-2">
-                testing testing tabs 
-            </mr-text>
+
+            
+
+            <mr-panel id="panel1" class="stack" class="col-2">
+                <mr-panel id="panel1" class="layout">
+
+                <mr-div class="information" class="col-2">
+                    <mr-div class="tight-stack" class="col-2">
+                        <mr-text id="name" class="col-2">loading</mr-text>
+                        <mr-text id="cuisine">loading</mr-text>
+                        
+                    </mr-div>
+                    <mr-text id="desc" class="col-2">loading</mr-text>
+                    <mr-text id="allergens" class="col-2">loading</mr-text>
+                    </mr-div>
+                    
+     
+            </mr-panel>
+
+            <mr-panel id="panel" class="stack" class="col-3">
+            <mr-panel id="panel2" class="layout">
+
+    
+
+        <mr-div class="information" class="col-3">
+            <mr-div class="tight-stack" class="col-3">
+                <mr-text id="recipe" class="col-3">loading</mr-text>
+                
+            </mr-div> 
+
+           
         </mr-panel>
+    </mr-panel>
 
-        <mr-panel id="panel3">
+
+        <mr-panel id="panel" class="stack" class="col-4">
+        <mr-panel id="panel3" class="layout">
           
-            <mr-div class="illustration">
-                <mr-div id="models" style="z-index: 100"></mr-div>
-            </mr-div>
-
-            <mr-div class="information">
-                <mr-div class="tight-stack">
-                    <mr-text id="name">loading</mr-text>
-                    <mr-text id="cuisine">loading</mr-text>
-                <mr-text id="desc">loading</mr-text>
-                <mr-text id="allergens">loading</mr-text>
-                </mr-div>
+                <mr-div class="tight-stack" class="col-4">
+                    <mr-text id="ingredients" class="col-4">loading</mr-text>
                 </mr-div>
 
+            </mr-panel>
         </mr-panel>
+    
+            
 
-        <mr-volume
-        id="volume" 
-        data-comp-anchor="type: plane; label: table;">
-        <mr-food id="food"></mr-food>
-        <mr-entity id="food-models"></mr-entity>
-        </mr-volume>
 
-    </mr-entity>
+            <mr-volume
+            id="volume" 
+            class="col-2"
+            data-comp-anchor="type: plane; label: table;">
+            <mr-food id="food"></mr-food>
+            <mr-entity id="food-models"></mr-entity>
+            </mr-volume>
+
+
+
+</mr-entity>
+
+
     </mr-app>
 </body>
 
@@ -144,6 +166,7 @@
             panels[frontIndex].classList.remove('front')
             panels[index].classList.add('front')
             frontIndex = index
+            // panels[frontIndex].visibility = visibility.hidden;
         }
 
         let unfolded = false 
@@ -168,9 +191,11 @@
                 }
                 panel.object3D.lookAt(forwardVec)
 
+
             } 
 
             unfolded = !unfolded
+           
         }
 
         function getForward(entity){
@@ -187,6 +212,7 @@
             unfolded = false;
             spread()
         })
+
 
     </script>
 
